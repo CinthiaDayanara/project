@@ -1,13 +1,13 @@
-# htmlLS
+# HtmlProject
 
-**htmlLS** is a simple web project that serves a "Hello World" message from an HTML file. This project is dockerized to make it easy to deploy and run in any environment.
+**HtmlProject** is a simple web project that serves a "Hello World" message from an HTML file. This project is dockerized to make it easy to deploy and run in any environment.
 
 ## Project Structure
 
 The basic structure of the project is as follows:
 
 ```
-htmlLS/
+HtmlProject/
 │
 ├── .vscode/         # Configuration files for Visual Studio Code
 ├── Dockerfile       # Dockerfile to build the container image
@@ -30,7 +30,7 @@ Clone it using Git:
 
 ```bash
 git clone https://github.com/lessalcu/HtmlProject.git
-cd htmlLS
+cd HtmlProject
 ```
 
 #### 2. Build the Docker Image
