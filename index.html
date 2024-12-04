@@ -6,7 +6,15 @@
     <title>Hello World</title>
 </head>
 <body>
+
     <h1>¡Hello world from HTML, Lesly Salas SI08!</h1>
     <h1>¡DOCKER HUB!</h1>
+
+ <p>Nombre de host: <span id="hostname"></span></p>
+
+  <script>
+    var hostname = window.location.hostname;
+    document.getElementById("hostname").innerHTML = hostname;
+  </script>
 </body>
 </html>
