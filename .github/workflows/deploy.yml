@@ -50,7 +50,7 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.EC2_INSTANCE_1 }}
+          host: ${{ secrets.EC2_INSTANCE_3 }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
@@ -70,7 +70,7 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.EC2_INSTANCE_2 }}
+          host: ${{ secrets.EC2_INSTANCE_4 }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
