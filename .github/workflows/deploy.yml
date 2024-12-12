@@ -2,7 +2,7 @@ name: CI/CD for Docker Image Deployment
 
 on:
   # Detecta cambios en archivos HTML para construir y subir la imagen
-  pull_request:
+  push:
     branches:
       - main
 
