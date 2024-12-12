@@ -59,3 +59,23 @@ jobs:
             docker rm html-container || true
             docker pull lssalas/html-project:latest
             docker run -d --name html-container -p 80:80 lssalas/html-project:latest
+        # Paso 1: Configurar la clave SSH
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      # Paso 2: Conectarse a la instancia EC2 y actualizar el contenedor
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.EC2_INSTANCE_2 }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            docker stop html-container || true
+            docker rm html-container || true
+            docker pull lssalas/html-project:latest
+            docker run -d --name html-container -p 80:80 lssalas/html-project:latest
