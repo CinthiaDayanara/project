@@ -30,7 +30,7 @@ jobs:
         with:
           context: .               # Usa el Dockerfile desde la raíz
           push: true               # Sube la imagen a Docker Hub
-          tags: lssalas/html-project:latest # Etiqueta como "latest"
+          tags: dayanara1898/html-project:latest # Etiqueta como "latest"
 
   # Trabajo 2: Desplegar la nueva imagen en la instancia EC2
   deploy:
