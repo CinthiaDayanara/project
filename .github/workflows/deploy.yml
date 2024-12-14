@@ -45,7 +45,7 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      # Paso 2: Desplegar en múltiples instancias
+      # Paso 2: Desplegar en múltiples insta
       - name: Deploy to EC2 Instance 1
         uses: appleboy/ssh-action@v0.1.6
         with:
