@@ -39,14 +39,13 @@ jobs:
 
     steps:
       # Paso 1: Configurar la clave SSH
-      - name: Add SSH Key to Docker container
+      - name: Set up SSH key
         run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          docker run -d -v ~/.ssh:/root/.ssh my-docker-image
+          mkdir -p ~/.ssh  # Crear el directorio .ssh si no existe
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa  # Guardar la clave SSH en el archivo id_rsa
+          chmod 600 ~/.ssh/id_rsa  # Asegurar que la clave privada tenga los permisos correctos
 
-
-      # Paso 3: Desplegar en múltiples instancias EC2
+      # Paso 2: Desplegar en múltiples instancias EC2
       - name: Deploy to EC2 Instance 1
         uses: appleboy/ssh-action@v0.1.6
         with:
