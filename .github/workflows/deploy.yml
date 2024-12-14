@@ -39,11 +39,12 @@ jobs:
 
     steps:
       # Paso 1: Configurar la clave SSH
-      - name: Set up SSH key
+      - name: Add SSH Key to Docker container
         run: |
-          mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          docker run -d -v ~/.ssh:/root/.ssh my-docker-image
+
 
       # Paso 3: Desplegar en múltiples instancias EC2
       - name: Deploy to EC2 Instance 1
