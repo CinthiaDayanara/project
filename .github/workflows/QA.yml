@@ -1,7 +1,6 @@
 name: CI/CD for Docker Image Deployment
 
 on:
-  # Detecta cambios en archivos HTML para construir y subir la imagen
   push:
     branches:
       - test
@@ -36,30 +35,10 @@ jobs:
   deploy:
     name: Deploy Docker Container to EC2
     runs-on: ubuntu-latest
-
     needs: update_docker_image # Espera que se complete el trabajo de actualizar la imagen
+
     steps:
       # Paso 1: Configurar la clave SSH
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-
-      # Paso 2: Conectarse a la instancia EC2 y actualizar el contenedor
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.EC2_INSTANCE_1 }}
-          username: ec2-user
-          key: ${{ secrets.EC2_SSH_KEY }}
-          port: 22
-          script: |
-            docker stop html-container || true
-            docker rm html-container || true
-            docker pull dayanata1898/html-project:latest
-            docker run -d --name html-container -p 80:80 dayanara1898/html-project:latest
-        # Paso 1: Configurar la clave SSH
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh
