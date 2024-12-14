@@ -30,7 +30,7 @@ jobs:
         with:
           context: .               # Usa el Dockerfile desde la raíz
           push: true               # Sube la imagen a Docker Hub
-          tags: lssalas/html-project:latest # Etiqueta como "latest"
+          tags: dayanara1898/html-project:latest # Etiqueta como "latest"
 
   # Trabajo 2: Desplegar la nueva imagen en la instancia EC2
   deploy:
@@ -57,8 +57,8 @@ jobs:
           script: |
             docker stop html-container || true
             docker rm html-container || true
-            docker pull lssalas/html-project:latest
-            docker run -d --name html-container -p 80:80 lssalas/html-project:latest
+            docker pull dayanara1898/html-project:latest
+            docker run -d --name html-container -p 80:80 dayanara1898/html-project:latest
         # Paso 1: Configurar la clave SSH
       - name: Set up SSH key
         run: |
@@ -77,5 +77,5 @@ jobs:
           script: |
             docker stop html-container || true
             docker rm html-container || true
-            docker pull lssalas/html-project:latest
-            docker run -d --name html-container -p 80:80 lssalas/html-project:latest
+            docker pull dayanara1898/html-project:latest
+            docker run -d --name html-container -p 80:80 dayanara1898/html-project:latest
