@@ -1,7 +1,7 @@
 name: CI/CD for Docker Image Deployment
 
 on:
-  # Detecta cambios en archivos HTML en pull requests a la rama "test"
+  # Detecta cambios en archivos htmllL en pull requests a la rama "test"
   pull_request:
     branches:
       - test
