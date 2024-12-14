@@ -45,14 +45,6 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      # Paso 2: Depuración de la clave SSH (opcional)
-      - name: Debug SSH key
-        run: |
-          echo "SSH Key Setup"
-          cat ~/.ssh/id_rsa  # Esto imprime la clave, solo para depuración
-          echo "Attempting SSH connection to EC2 Instance 1"
-          ssh -v -i ~/.ssh/id_rsa ec2-user@${{ secrets.EC2_INSTANCE_3 }} "echo 'Connection successful'"
-
       # Paso 3: Desplegar en múltiples instancias EC2
       - name: Deploy to EC2 Instance 1
         uses: appleboy/ssh-action@v0.1.6
