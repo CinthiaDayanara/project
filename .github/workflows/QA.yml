@@ -44,6 +44,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+        
+        # Paso 2: Verificar la clave SSH cargada (Opcional para depuración)
+      - name: Debug SSH key (optional)
+        run: |
+          echo "SSH Key has been set up."
 
       # Paso 2: Conectarse a la instancia EC2 y actualizar el contenedor
       - name: Deploy to EC2
