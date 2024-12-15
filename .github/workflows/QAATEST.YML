@@ -7,7 +7,7 @@ on:
       - test
 
 jobs:
-  # Trabajo 1: Actualizar la imagen Docker
+  # Trabajo 1: Actualizar la imagen   Docker
   update_docker_image:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest

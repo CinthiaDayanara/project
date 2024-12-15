@@ -38,7 +38,7 @@ jobs:
     needs: update_docker_image
 
     steps:
-      # Paso 1: Configurar la clave SSH
+      # Paso 1: Configurar la clave  SSH
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh  # Crear el directorio .ssh si no existe
