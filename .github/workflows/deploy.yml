@@ -47,7 +47,7 @@ jobs:
 
       # Paso 2: Desplegar en múltiples instancias EC2
       - name: Deploy to EC2 Instance 1
-        uses: appleboy/ssh-action@v0.1.6
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.EC2_INSTANCE_3 }}
           username: ec2-user

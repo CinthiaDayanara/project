@@ -52,7 +52,7 @@ jobs:
 
       # Paso 2: Conectarse a la instancia EC2 y actualizar el contenedor
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.6
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.EC2_INSTANCE_1 }}
           username: ec2-user
